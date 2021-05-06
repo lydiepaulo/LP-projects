@@ -1,0 +1,74 @@
+@import '../tools/colors.scss';
+
+main {
+    @media screen and (max-width: 739px) {
+        padding-top: 200px;
+    }
+
+    @media screen and (min-width: 740px) {
+        padding-top: 100px;
+    }
+}
+
+#favorites {
+    margin-bottom: 4vw;
+    text-align: left;
+    font-size: 1rem;
+
+    a:last-child {
+        text-align: right;
+    }
+
+    &>div {
+        display: grid;
+        grid-template: auto / 20px 1fr auto;
+        align-items: center;
+        min-height: 65px;
+        border-top: 1px solid rgba($text, .1);
+        transition: all .3s;
+
+        @media screen and (max-width: 740px) {
+            grid-gap: 20px;
+        }
+
+        @media screen and (min-width: 740px) {
+            padding: 0 15px;
+            grid-gap: 20px;
+        }
+
+        &:hover {
+            border-radius: 5px;
+            background-color: rgba($text, .1);
+        }
+
+        &::before {
+            text-align: center;
+        }
+
+        div p {
+            font-size: .7rem;
+            text-transform: uppercase;
+            opacity: .7;
+            letter-spacing: 2px;
+            
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+//bouton favori
+button {
+    &::after {
+        content: '\f004';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        color: #e3502b;
+    }
+
+    &:hover::after {
+        color: $primary2;
+    }
+}

@@ -1,0 +1,102 @@
+@import '../tools/colors.scss';
+
+body {
+    position: relative;
+}
+
+main {
+    display: grid;
+
+    &>* {
+        grid-row: 1;
+        grid-column: 1;
+    }
+}
+
+#track {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    -webkit-filter: blur(8px);
+            filter: blur(8px);
+            
+            @media screen and (max-width: 739px) {
+                top: 140px;
+                min-height: calc(100vh - 140px);
+            }
+
+            @media screen and (min-width: 740px) {
+                top: 90px;
+                min-height: calc(100vh - 90px);
+            }
+}
+
+#track-ctn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    z-index: 1;
+    text-align: center;
+
+    @media screen and (max-width: 739px) {
+        margin-top: 150px;
+        min-height: calc(100vh - 150px);
+    }
+
+    @media screen and (min-width: 740px) {
+        margin-top: 100px;
+        min-height: calc(100vh - 100px);
+    }
+
+    img {
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        margin: 0 auto -50px;
+        box-shadow: 0 0 12px $secondary;
+    }
+
+    audio {
+        margin-bottom: 20px;
+    }
+
+    a:hover:not(#search-button) {
+        text-decoration: underline;
+    }
+
+    span {
+        opacity: .7;
+    }
+
+    p {
+        margin: 10px 0 100px;
+        font-size: .7rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: .7;
+    }
+
+    #search-button {
+        margin: 0 auto 4vw;
+    }
+
+    //bouton favori
+    button {
+        display: inline-block;
+        margin-left: 15px;
+
+        &::after {
+            content: '\f004';
+            font-family: 'Font Awesome 5 Free';
+        }
+
+        &:hover::after {
+            color: $primary2;
+        }
+    }
+}

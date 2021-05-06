@@ -1,0 +1,131 @@
+body {
+  background-color: #151515;
+  color: #f4f4f4;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+}
+@media screen and (max-width: 739px) {
+  body {
+    text-align: center;
+  }
+}
+
+header {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+}
+@media screen and (min-width: 740px) {
+  header {
+    padding: 0 2vw;
+    height: 95px;
+  }
+}
+
+nav {
+  width: 100%;
+}
+nav li {
+  display: inline-flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 739px) {
+  nav li:first-child {
+    width: 100%;
+    height: 30px;
+    align-items: center;
+    padding-top: 30px;
+  }
+  nav li:not(:first-child) {
+    padding: 20px 10px 30px;
+  }
+}
+@media screen and (min-width: 740px) {
+  nav li {
+    width: 100%;
+    height: 30px;
+  }
+  nav li:first-child {
+    max-width: 200px;
+  }
+  nav li:not(:first-child) {
+    max-width: 130px;
+  }
+}
+nav li > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: letter-spacing 0.5s;
+  font-size: 0.9rem;
+}
+nav li:not(:first-child)::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #f4f4f4;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+nav li:hover::after {
+  transform: scaleX(1);
+}
+
+@media screen and (max-width: 1023px) {
+  main:not(#artist, #track) {
+    margin: 0 4vw;
+  }
+}
+@media screen and (min-width: 1024px) {
+  main:not(#artist, #track) {
+    margin: 0 10vw;
+  }
+}
+@media screen and (max-width: 739px) {
+  main:not(#artist, #track) section:first-child {
+    padding-top: 140px;
+  }
+}
+@media screen and (min-width: 740px) {
+  main:not(#artist, #track) section:first-child {
+    padding-top: 80px;
+  }
+}
+
+h2 {
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+}
+
+#search-button {
+  display: block;
+  width: 280px;
+  margin: 24px 0;
+  padding: 10px;
+  border-radius: 60px;
+  background-color: #e99d3e;
+  color: #f4f4f4;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: all 0.5s;
+  font-family: "Montserrat", sans-serif;
+}
+@media screen and (max-width: 739px) {
+  #search-button {
+    margin: 24px auto;
+  }
+}
+
+#search-button:hover {
+  background-color: #f4f4f4;
+  color: #151515;
+}

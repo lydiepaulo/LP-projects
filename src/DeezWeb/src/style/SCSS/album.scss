@@ -1,0 +1,109 @@
+@import '../tools/colors.scss';
+
+section:first-child {
+    display: flex;
+    align-items: center;
+    min-height: 65vh;
+
+    @media screen and (max-width: 739px) {
+        flex-direction: column;
+    }
+
+    &>div:first-child {
+        @media screen and (max-width: 439px) {
+            width: 100vw;
+            margin: 0 -4vw 40px;
+        }
+
+        @media screen and (min-width: 440px) {
+            min-width: 294px;
+            width: 30%;
+        }
+
+        @media screen and (max-width: 739px) {
+            margin-bottom: 40px;
+        }
+
+        @media screen and (min-width: 740px) {
+            margin-right: 4vw;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &>div:nth-child(2) {
+        line-height: 180%;
+
+        h2 {
+            margin: 10px 0;
+        }
+
+        span {
+            opacity: .7;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a#search-button {
+            @media screen and (max-width: 739px) {
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+section:nth-child(2) div:first-child,
+#track-list>div {
+    display: grid;
+    grid-template: auto / 30px 1fr 70px;
+    grid-gap: 20px;
+    align-items: center;
+    padding-right: 10px;
+    height: 65px;
+
+    span:last-child {
+        text-align: right;
+    }
+}
+
+section:nth-child(2)>div:first-child {
+    text-transform: uppercase;
+    font-size: .8rem;
+    letter-spacing: 2px;
+    opacity: .7;
+
+    span:first-child {
+        text-align: center;
+    }
+}
+
+#track-list {
+    margin-bottom: 4vw;
+    text-align: left;
+    font-size: 1rem;
+    counter-reset: section;
+
+    div {
+        border-top: 1px solid rgba($text, .1);
+        transition: all .3s;
+
+        &:hover {
+            border-radius: 5px;
+            background-color: rgba($text, .1);
+        }
+
+        &::before {
+            content: counter(section);
+            counter-increment: section;
+            text-align: center;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+}

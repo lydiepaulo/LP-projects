@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeezWeb</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">  
+    <link href="style/tools/reset.css" rel="stylesheet">
+    <link href="style/SCSS/global.css" rel="stylesheet">
+    <link href="style/SCSS/index.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/95c4170ec2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><h1>DeezWeb</h1></li>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="pages/favorites.html">Favoris</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="index">
+        <section>
+            <div>
+                <img src="images/music_app.svg" alt="Application de musique">
+            </div>
+            <div>
+                <h2>Rechercher sur DeezWeb</h2>
+
+                <span id="search-bar_container">
+                    <input type="text" placeholder="Artiste, album, titre…" id="search-bar">
+                </span>
+                <select name="dw" id="dw-select">
+                    <option value="RATING_DESC">Trier par…</option>
+                    <option value="TRACK_DESC">Titre</option>
+                    <option value="ALBUM_DESC">Album</option>
+                    <option value="ARTIST_DESC">Artiste</option>
+                </select>
+            
+                <input type="button" value="Rechercher" id="search-button">
+
+                <div id="searchBlock">
+                    <span id="search-error"></span>
+                    <h2></h2>
+                </div>
+            </div>
+        </section>
+
+        <section id="cards-list"></section>
+        
+    </main>
+    
+    <script src="js/index.js"></script>
+    <script src="js/global.js"></script>
+</body>
+
+</html>

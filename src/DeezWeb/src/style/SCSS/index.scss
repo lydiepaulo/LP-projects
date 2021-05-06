@@ -1,0 +1,222 @@
+@import '../tools/colors.scss';
+
+section:first-child {
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 739px) {
+        min-height: calc(100vh - 140px);
+        flex-direction: column;
+        padding-bottom: 30px;
+    }
+
+    @media screen and (min-width: 740px) {
+        min-height: calc(100vh - 90px);
+    }
+
+    //illustration
+    &>div:first-child {
+        min-width: 250px;
+        width: 35%;
+        margin-right: 4vw;
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+    &>div:nth-child(2) {
+        margin-top: 4vw;
+
+        //affichage du nombre de résultat de recherche et gestion des erreurs
+        #searchBlock {
+            margin-top: 80px;
+            height: 45px;
+        }
+    }
+}
+
+#search-bar_container {
+    display: inline-block;
+    padding: 5px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid $text;
+    text-align: center;
+    white-space: nowrap;
+
+    &::before {
+        content: '\f002';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        font-size: .8rem;
+        margin-right: 5px;
+    }
+}
+
+select#dw-select {
+    padding: 0 5px;
+    height: 30px;
+    color: $secondary;
+    text-transform: uppercase;
+    font-size: .7rem;
+    letter-spacing: 1px;
+    font-family: 'Lato', sans-serif;
+
+    @media screen and (max-width: 419px) {
+        display: block;
+        margin: 0 auto;
+    }
+
+    @media screen and (min-width: 420px) {
+        margin: 0 15px;
+    }
+}
+
+#cards-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: -12px 0 4vw -12px;
+    width: calc(100% + 12px);
+
+    //équivaut à newCard
+    &>div {
+        display: grid;
+        border-radius: 12px;
+        border: 1px solid rgba($text, .1);
+        margin: 12px 0 0 12px;
+        padding: 4px;
+        box-sizing: content-box;
+
+        @media screen and (max-width: 513px) {
+            width: 282px;
+        }
+
+        @media screen and (min-width: 514px) {
+            min-width: 220px;
+            width: 17vw;
+        }
+
+        //background noir superposé sur image
+        &>div {
+            z-index: 1;
+            grid-row: 1;
+            grid-column: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity .3s;
+
+            @media screen and (max-width: 513px) {
+                height: 282px;
+            }
+    
+            @media screen and (min-width: 514px) {
+                min-height: 220px;
+                height: 17vw;
+            }
+
+            //lien "play" : page track
+            a {
+                &::after {
+                    content: '\f144';
+                    font-family: 'Font Awesome 5 Free';
+                    font-weight: 900;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 46px;
+                    height: 46px;
+                    background-color: white;
+                    color: $primary;
+                    font-size: 3rem;
+                    border-radius: 50%;
+                    transition: color .3s;
+                    font-size: 3rem;
+                    box-shadow: 0 0 12px $secondary;
+                }
+
+                &:hover::after {
+                    color: $primary2;
+                }
+            }
+        }
+
+        &:hover>div {
+            opacity: 1;
+            background-color: rgba($secondary, .8);
+        }
+    }
+
+    figure {
+        grid-row: 1;
+        grid-column: 1;
+        position: relative;
+
+        @media screen and (max-width: 513px) {
+            width: 282px;
+        }
+
+        @media screen and (min-width: 514px) {
+            min-width: 220px;
+            width: 17vw;
+        }
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            margin-bottom: 4px;
+            border-radius: 8px 8px 0 0;
+
+            @media screen and (max-width: 513px) {
+                width: 282px;
+            }
+    
+            @media screen and (min-width: 514px) {
+                min-width: 220px;
+                width: 17vw;
+            }
+        }
+
+        figcaption {
+            padding: 8px 8px 0;
+
+            h3 {
+                line-height: 120%;
+            }
+
+            span {
+                display: block;
+                font-size: .9rem;
+                margin: 16px 0 4px;
+                opacity: .7;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                a:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        //bouton favori
+        button {
+            position: absolute;
+            z-index: 1;
+            bottom: 4px;
+            right: 8px;
+
+            &::after {
+                content: '\f004';
+                font-family: 'Font Awesome 5 Free';
+            }
+
+            &:hover::after {
+                color: $primary2;
+            }
+        }
+    }
+}
